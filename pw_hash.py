@@ -26,10 +26,16 @@ class PWHash:
             self.hashed_password = hash_password
 
     def __create_hash(self, input_txt: str) -> str:
+        """
+        Return a hash using sha256
+        """
         hash_output = sha256(str(input_txt).encode('utf-8')).hexdigest()
         return hash_output
 
     def check_password(self, input_password: str) -> bool:
+        """
+        Check if input_password is the right password
+        """
         input_hash = self.__create_hash(self.__prefix+input_password+self.__suffix)
         return self.__hashed_password == input_hash
         
