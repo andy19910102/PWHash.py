@@ -3,7 +3,11 @@ from random import choice
 from hashlib import sha256
 
 class PWHash:
-    def __init__(self, password: str, salt_len=15):
+    def __init__(self, password: str, salt_len=15, mod="production"):
+        """
+        Create a PWHash object,
+        mod="production" {default} | "testing"
+        """
         salt_source = ascii_letters+digits
         prefix, suffix = "", ""
         i = 0
@@ -16,6 +20,10 @@ class PWHash:
         self.__prefix = prefix
         self.__suffix = suffix
         self.__hashed_password = hash_password
+        if mod == "testing":
+            self.prefix = prefix
+            self.suffix = suffix
+            self.hashed_password = hash_password
 
     def __create_hash(self, input_txt: str) -> str:
         hash_output = sha256(str(input_txt).encode('utf-8')).hexdigest()
