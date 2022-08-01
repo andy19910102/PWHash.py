@@ -9,7 +9,7 @@ password_list = res.text.split()
 hash_list = []
 
 csv_header = ["Password", "Prefix Salt", "Suffix Salt", "Hash"]
-with open('countries.csv', 'w', encoding='UTF8') as f:
+with open('password_and_hash_map_from_10_million_password_list_top_500.csv', 'w', encoding='UTF8') as f:
     writer = csv.writer(f)
     writer.writerow(csv_header)
     for password in password_list:
