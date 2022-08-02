@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pw-hash",
+    name="pw-hash-mod",
     version="0.0.1",
     author="Huang An Sheng",
     author_email="andy19910102@gmail.com",
